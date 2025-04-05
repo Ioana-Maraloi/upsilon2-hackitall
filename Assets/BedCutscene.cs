@@ -5,17 +5,23 @@ public class BedCutscene : MonoBehaviour
 {
     private bool isNearBed = false;
 
-    public Animator animator; // Pune aici Animatorul personajului tău
-
+    public Animator animator; // Animatorul personajului tău
+    public Transform bedTransform; // Transformul patului (de plasat în Inspector)
+    public float timeAcceleration = 6.0f; // Factorul de accelerație
+     public ClockManager clockManager;
     void Update()
     {
         if (isNearBed && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("Dormim...");
             animator.SetTrigger("GoToSleep");
+            clockManager.AccelerateClock(timeAcceleration);
+            // Plasează personajul exact pe pat
+            transform.position = bedTransform.position;
+            transform.rotation = bedTransform.rotation;
 
-            // Așteptăm 2 secunde și apoi mergem la scenă nouă (visul)
-            // Invoke("GoToDreamScene", 2f);
+            // Dacă vrei să aștepți câteva secunde înainte de a schimba scena, folosește Invoke
+            Invoke("GoToDreamScene", 10f);
         }
     }
 
@@ -36,8 +42,8 @@ public class BedCutscene : MonoBehaviour
         }
     }
 
-    // private void GoToDreamScene()
-    // {
-    //     SceneManager.LoadScene("DreamScene"); // Asigură-te că scena există în Build Settings
-    // }
+    private void GoToDreamScene()
+    {
+        SceneManager.LoadScene(2); // Asigură-te că scena există în Build Settings
+    }
 }
