@@ -44,6 +44,6 @@ public class BedCutscene : MonoBehaviour
 
     private void GoToDreamScene()
     {
-        SceneManager.LoadScene(2); // Asigură-te că scena există în Build Settings
+        SceneManager.LoadScene(4); // Asigură-te că scena există în Build Settings
     }
 }

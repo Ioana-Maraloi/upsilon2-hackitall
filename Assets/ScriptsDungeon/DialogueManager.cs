@@ -1,32 +1,25 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
+
 public class DialogueManager : MonoBehaviour
 {
-    // [SerializeField] private GameObject dialogueBox;
-    // [SerializeField] private GameObject dialogueBoxEnemy; 
-    [SerializeField] private Animation wizardAnim; // dacă e animație legacy
-    [SerializeField] private WizardMove wizardMove;
+    [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private TextMeshProUGUI dialogueTextEnemy;
 
-    [SerializeField] private GameObject fadePanel;
-    [SerializeField] private GameObject nextPanel;
-
-    [SerializeField] private TMPro.TextMeshProUGUI dialogueText;
-    [SerializeField] private TMPro.TextMeshProUGUI dialogueTextEnemy;
-
-
-    // [SerializeField] private float delayedStart = 0.0f;
+    [SerializeField] private int sceneIndexToLoad = 2; // ✏️ indexul scenei din Build Settings
 
     [TextArea(3, 10)]
-    public string[] lines; // replicile monstrului
+    public string[] lines;
 
     public float textSpeed = 0.05f;
 
     private int index = 0;
     private bool isTyping = false;
-
     private bool myTurn = true;
+
     void Start()
     {
         StartDialogue();
@@ -38,17 +31,6 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeLine());
     }
 
-    void FadeToBlack()
-    {
-        fadePanel.SetActive(true);
-    }
-
-    void ShowNextPanel()
-    {
-        nextPanel.SetActive(true);
-        Time.timeScale = 0f; // opțional, dacă vrei să oprești jocul
-    }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -57,7 +39,6 @@ public class DialogueManager : MonoBehaviour
             {
                 StopAllCoroutines();
 
-                // Afiseaza direct toata replica curenta in textul corect
                 if (myTurn)
                     dialogueText.text = lines[index];
                 else
@@ -70,7 +51,7 @@ public class DialogueManager : MonoBehaviour
                 index++;
                 if (index < lines.Length)
                 {
-                    myTurn = !myTurn; // trece la celalalt vorbitor
+                    myTurn = !myTurn;
                     StartCoroutine(TypeLine());
                 }
                 else
@@ -79,31 +60,18 @@ public class DialogueManager : MonoBehaviour
                     dialogueText.text = "";
                     dialogueTextEnemy.text = "";
 
-                    // pornește animația
-                    wizardAnim.Play("move_forward_fast");
-                    wizardMove.StartMoving();
-
-                    Invoke("FadeToBlack", 1f);
-                    Invoke("ShowNextPanel", 4f);
+                    // schimbare scenă după delay
+                    Invoke("LoadNextScene", 1f);
                 }
             }
         }
     }
 
-
-    // IEnumerator DelayedStart()
-    // {
-    //     yield return new WaitForSeconds(delayedStart);  // ia valoarea din Inspector
-    //     StartCoroutine(TypeLine());
-    // }
     IEnumerator TypeLine()
     {
         isTyping = true;
-
-        // Decide în care text scriem
         TextMeshProUGUI currentText = myTurn ? dialogueText : dialogueTextEnemy;
 
-        // Golește ambele texte înainte
         dialogueText.text = "";
         dialogueTextEnemy.text = "";
 
@@ -114,5 +82,10 @@ public class DialogueManager : MonoBehaviour
         }
 
         isTyping = false;
+    }
+
+    void LoadNextScene()
+    {
+        SceneManager.LoadScene(sceneIndexToLoad);
     }
 }

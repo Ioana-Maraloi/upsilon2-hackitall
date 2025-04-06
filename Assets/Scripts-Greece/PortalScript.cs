@@ -4,22 +4,26 @@ using System.Collections;
 
 public class PortalScript : MonoBehaviour
 {
-    // [SerializeField] private GameObject secretPanel;
+    [SerializeField] private int sceneIndexToLoad = 3;
+
+    private bool isTriggered = false;
 
     private void OnTriggerEnter(Collider other)
     {
+        if (isTriggered) return;
+
         PlayerInventory playerInventory = other.GetComponent<PlayerInventory>();
 
         if (playerInventory != null)
         {
-            // secretPanel.SetActive(true);
-            StartCoroutine(ChangeSceneAfterDelay(2f)); // așteaptă 2 secunde
+            isTriggered = true;
+            StartCoroutine(LoadSceneAfterDelay());
         }
     }
 
-    IEnumerator ChangeSceneAfterDelay(float delay)
+    IEnumerator LoadSceneAfterDelay()
     {
-        yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(2);
+        yield return new WaitForSeconds(2f); // Așteaptă 2 secunde
+        SceneManager.LoadScene(3);
     }
 }
