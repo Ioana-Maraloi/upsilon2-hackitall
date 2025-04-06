@@ -7,11 +7,6 @@ public class Portal2 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        PlayerInventory playerInventory = other.GetComponent<PlayerInventory>();
-
-        if (playerInventory != null)
-        {
-            SceneManager.LoadScene(sceneIndexToLoad);
-        }
+        SceneManager.LoadScene(sceneIndexToLoad);
     }
 }
