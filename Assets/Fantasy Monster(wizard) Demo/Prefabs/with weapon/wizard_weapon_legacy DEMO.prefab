@@ -40,7 +40,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013314187654}
-  - component: {fileID: 111000010215138216}
   m_Layer: 0
   m_Name: wizard_weapon_legacy DEMO
   m_TagString: Untagged
@@ -69,29 +68,6 @@ Transform:
   - {fileID: 4000012569924190}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &111000010215138216
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000010252498714}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: 6d2c7b500babe564cbae56db67034d33, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 6d2c7b500babe564cbae56db67034d33, type: 2}
-  - {fileID: 7400000, guid: 1f331688dfc131d44ac24de634e5a33f, type: 2}
-  - {fileID: 7400000, guid: fafb667a18a21154db78c60c2cb68841, type: 2}
-  - {fileID: 7400000, guid: 97f061d6fe22cfa4b81db0a070d75bd1, type: 2}
-  - {fileID: 7400000, guid: 9159872ee2dfc97458d179623772e3c1, type: 2}
-  - {fileID: 7400000, guid: e67fd987be4334e469b03cfc2ad2bb35, type: 2}
-  - {fileID: 7400000, guid: 7bd7538e4de8e6b48bac06bed1b90988, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!1 &1000010307727294
 GameObject:
   m_ObjectHideFlags: 0
