@@ -9,7 +9,7 @@ public class DialogueFinal : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI dialogueTextEnemy;
 
-    [SerializeField] private int sceneIndexToLoad = 6; // ✏️ indexul scenei din Build Settings
+    [SerializeField] private int sceneIndexToLoad = 0; // ✏️ indexul scenei din Build Settings
 
     [TextArea(3, 10)]
     public string[] lines;
@@ -86,6 +86,6 @@ public class DialogueFinal : MonoBehaviour
 
     void LoadNextScene()
     {
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(0);
     }
 }
