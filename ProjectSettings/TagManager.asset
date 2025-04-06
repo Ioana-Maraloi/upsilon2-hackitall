@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CinemachineTarget
   - Enemy
+  - Audio
+  - Bed
   layers:
   - Default
   - TransparentFX
