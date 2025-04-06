@@ -3784,6 +3784,50 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.754453, y: 0.6881513, z: 2.316459}
   m_Center: {x: 0.000464499, y: 0.2854453, z: 0.0020878315}
+--- !u!1 &323586594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 323586596}
+  - component: {fileID: 323586595}
+  m_Layer: 0
+  m_Name: Trans
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &323586595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323586594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98610bbcce0b7a349997210cd00e80f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &323586596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323586594}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.549492, y: 4.031838, z: -24.450634}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &327611827
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12510,7 +12554,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 883615393}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 323586595}
+        m_TargetAssemblyTypeName: Transitie, Assembly-CSharp
+        m_MethodName: LoadSceneByIndex
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &883615393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16999,7 +17055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fb7996ff6a6ff74a912800ec0b49678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secretPanel: {fileID: 1449574632}
+  sceneToLoad: 3
 --- !u!1001 &1221934436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20005,7 +20061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fb7996ff6a6ff74a912800ec0b49678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secretPanel: {fileID: 0}
+  sceneToLoad: Level2
 --- !u!114 &1449574635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33637,3 +33693,4 @@ SceneRoots:
   - {fileID: 686744013}
   - {fileID: 449430135}
   - {fileID: 1690582432}
+  - {fileID: 323586596}

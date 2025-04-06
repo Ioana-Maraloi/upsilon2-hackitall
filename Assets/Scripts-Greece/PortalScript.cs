@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class PortalScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] private GameObject secretPanel; public int NumberOfDiamonds { get; private set; }
+    // [SerializeField] private GameObject secretPanel;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -11,7 +12,14 @@ public class PortalScript : MonoBehaviour
 
         if (playerInventory != null)
         {
-            secretPanel.SetActive(true);
+            // secretPanel.SetActive(true);
+            StartCoroutine(ChangeSceneAfterDelay(2f)); // așteaptă 2 secunde
         }
+    }
+
+    IEnumerator ChangeSceneAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(2);
     }
 }
