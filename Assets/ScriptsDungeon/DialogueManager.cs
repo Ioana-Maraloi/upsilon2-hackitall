@@ -5,7 +5,12 @@ using TMPro;
 public class DialogueManager : MonoBehaviour
 {
     // [SerializeField] private GameObject dialogueBox;
-    // [SerializeField] private GameObject dialogueBoxEnemy;
+    // [SerializeField] private GameObject dialogueBoxEnemy; 
+    [SerializeField] private Animation wizardAnim; // dacă e animație legacy
+    [SerializeField] private WizardMove wizardMove;
+
+    [SerializeField] private GameObject fadePanel;
+    [SerializeField] private GameObject nextPanel;
 
     [SerializeField] private TMPro.TextMeshProUGUI dialogueText;
     [SerializeField] private TMPro.TextMeshProUGUI dialogueTextEnemy;
@@ -31,6 +36,17 @@ public class DialogueManager : MonoBehaviour
     {
         index = 0;
         StartCoroutine(TypeLine());
+    }
+
+    void FadeToBlack()
+    {
+        fadePanel.SetActive(true);
+    }
+
+    void ShowNextPanel()
+    {
+        nextPanel.SetActive(true);
+        Time.timeScale = 0f; // opțional, dacă vrei să oprești jocul
     }
 
     void Update()
@@ -62,10 +78,19 @@ public class DialogueManager : MonoBehaviour
                     // final de dialog
                     dialogueText.text = "";
                     dialogueTextEnemy.text = "";
+
+                    // pornește animația
+                    wizardAnim.Play("move_forward_fast");
+                    wizardMove.StartMoving();
+
+                    Invoke("FadeToBlack", 1f);
+                    Invoke("ShowNextPanel", 4f);
                 }
             }
         }
     }
+
+
     // IEnumerator DelayedStart()
     // {
     //     yield return new WaitForSeconds(delayedStart);  // ia valoarea din Inspector
