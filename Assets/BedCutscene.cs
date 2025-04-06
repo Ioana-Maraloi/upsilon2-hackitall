@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement; // Pentru schimbare scenă
 public class BedCutscene : MonoBehaviour
 {
     private bool isNearBed = false;
+    public ClockManager clockManager; // Referință la ClockManager
+    public float timeAcceleration = 10.0f; // Factorul de accelerație
 
     public Animator animator; // Pune aici Animatorul personajului tău
 
@@ -13,9 +15,9 @@ public class BedCutscene : MonoBehaviour
         {
             Debug.Log("Dormim...");
             animator.SetTrigger("GoToSleep");
-
+            clockManager.AccelerateClock(timeAcceleration);
             // Așteptăm 2 secunde și apoi mergem la scenă nouă (visul)
-            // Invoke("GoToDreamScene", 2f);
+            Invoke("GoToDreamScene", 5f);
         }
     }
 
@@ -36,8 +38,8 @@ public class BedCutscene : MonoBehaviour
         }
     }
 
-    // private void GoToDreamScene()
-    // {
-    //     SceneManager.LoadScene("DreamScene"); // Asigură-te că scena există în Build Settings
-    // }
+    private void GoToDreamScene()
+    {
+        SceneManager.LoadScene(2); // Asigură-te că scena există în Build Settings
+    }
 }
