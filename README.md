@@ -3,7 +3,7 @@ HackITAll 2025 – GameJam Submission
 Theme: Time Glitch
 Built with Unity 3D & C#
 
-Upsilon is a 3D first-person adventure game created in just 48 hours during the HackITAll 2025 GameJam. The theme of the event was "Time Glitch", which inspired us to craft a story-rich experience where the main character travels through distorted moments in history, completing challenges to restore the timeline and return to the present.
+Upsilon is a 3D third-person adventure game created in just 48 hours during the HackITAll 2025 GameJam. The theme of the event was "Time Glitch", which inspired us to craft a story-rich experience where the main character travels through distorted moments in history, completing challenges to restore the timeline and return to the present.
 
 ## 🧠 Story & Gameplay Concept
 The game begins in the present day. You play as a man who just got home from work and lies down to rest in his apartment. Suddenly, a strange clock in the corner of the room starts spinning rapidly, accelerating time unnaturally. He falls asleep — and wakes up in a dark dungeon, where he meets a mysterious sorceress.
